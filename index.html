@@ -175,7 +175,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-05-14 15:12:20 / Modified: 16:28:15" itemprop="dateCreated datePublished" datetime="2021-05-14T15:12:20+08:00">2021-05-14</time>
+              <time title="Created: 2021-05-14 15:12:20 / Modified: 16:45:19" itemprop="dateCreated datePublished" datetime="2021-05-14T15:12:20+08:00">2021-05-14</time>
             </span>
 
           
@@ -189,7 +189,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Def 1. (上极限和下极限)<br>$\forall {A_n}^{infity}<em>{n=1}$，上极限是<br>$$\limsup</em>{n \rightarrow \infty} A_{n} =\bigcap_{n=1}^{\infty} \bigcup_{k=n}^{\infty} A_{k}$$<br>下极限是<br>$$\liminf_{n \rightarrow \infty} A_{n} =\bigcup_{n=1}^{\infty} \bigcap_{k=n}^{\infty} A_{k}$$</p>
+          <p>Def 1. (上极限和下极限)<br>$\forall {A_n}^{\infty}<em>{n=1}$，上极限是<br>$$\limsup</em>{n \rightarrow \infty} A_{n} =\bigcap_{n=1}^{\infty} \bigcup_{k=n}^{\infty} A_{k}$$<br>下极限是<br>$$\liminf_{n \rightarrow \infty} A_{n} =\bigcup_{n=1}^{\infty} \bigcap_{k=n}^{\infty} A_{k}$$</p>
 <h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>$$A_1 = {1,a}$$<br>$$A_2 = {0,b}$$<br>$$A_3 = {1,b}$$<br>$$A_4 = {0,b}$$<br>$$\cdots$$<br>在这个例子中，上极限 $\bigcap_{n=1}^{\infty} \bigcup_{k=n}^{\infty} A_{k}$取为${0,1,b}$，因为${a}$仅仅在${A_1}$中存在。因此，上极限可以理解为在<strong>无穷个${A_j}$中存在的元素的集合</strong>。</p>
 <p>${A_n}$的上极限与单纯地对${A_n}$取交集区别：单纯取交集，可能得到空集，因为不是都存在元素在每个集合中都存在，上极限只需要其中元素在无穷个集合中存在即可。于是，有定义：<br>$$\limsup_{n \rightarrow \infty} A_{n} = {\omega | \omega 属于无穷多个A_n}$$</p>
 <p>下极限 $\bigcup_{n=1}^{\infty} \bigcap_{k=n}^{\infty} A_{k}$，此例中，$n=1$时为空集；$n\ge 2$时是${b}$。因此，下极限是${b}$。下极限中没有${0,1}$，因为${0,1}$虽然存在于无穷多个集合中，但是同时也不存在于无穷多个集合中。下极限的元素，<strong>只在有限个集合中不存在</strong>。也说明了，下极限的元素一定是存在于无穷多的集合中，因此下极限的元素一定存在于上极限中，有定义：<br>$$\liminf_{n \rightarrow \infty} A_{n} = {\omega | \omega 至多不属于有限个A_n}$$<br>并且<br>$$\liminf_{n \rightarrow \infty} A_n \subset \limsup_{n \rightarrow \infty} A_n$$</p>
@@ -199,7 +199,7 @@
 <p><strong>Note</strong></p>
 <p>这个引理在概率论的直观解释就是抛无限次硬币，出现无限次正面朝上的概率为1，出现有限次反面朝上的概率为0。</p>
 <p>从测度论也很好理解：如果一系列独立事件发生的概率和小于无穷，那么这些事件中<strong>无穷多次发生的事件的概率测度</strong>必为0，否则这无限多个集合每个测度都不小于$\epsilon$，加在一起就无穷大了；反之如果一系列独立事件发生的概率和趋向无穷，那么这些事件中<strong>无穷多件发生的概率为1</strong>。</p>
-<p>记号：$A_n,i.o.(infinitely often)$表示集合序列的${\A_n}$的上极限。</p>
+<p>记号：$A_n,i.o.(infinitely often)$表示集合序列的${A_n}$的上极限。</p>
 
       
     </div>
