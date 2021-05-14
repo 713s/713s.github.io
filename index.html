@@ -189,17 +189,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Def 1. (上极限和下极限)<br>$\forall {A_n}^{\infty}<em>{n=1}$，上极限是<br>$$\limsup</em>{n \rightarrow \infty} A_{n} =\bigcap_{n=1}^{\infty} \bigcup_{k=n}^{\infty} A_{k}$$<br>下极限是<br>$$\liminf_{n \rightarrow \infty} A_{n} =\bigcup_{n=1}^{\infty} \bigcap_{k=n}^{\infty} A_{k}$$</p>
-<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>$$A_1 = {1,a}$$<br>$$A_2 = {0,b}$$<br>$$A_3 = {1,b}$$<br>$$A_4 = {0,b}$$<br>$$\cdots$$<br>在这个例子中，上极限 $\bigcap_{n=1}^{\infty} \bigcup_{k=n}^{\infty} A_{k}$取为${0,1,b}$，因为${a}$仅仅在${A_1}$中存在。因此，上极限可以理解为在<strong>无穷个${A_j}$中存在的元素的集合</strong>。</p>
-<p>${A_n}$的上极限与单纯地对${A_n}$取交集区别：单纯取交集，可能得到空集，因为不是都存在元素在每个集合中都存在，上极限只需要其中元素在无穷个集合中存在即可。于是，有定义：<br>$$\limsup_{n \rightarrow \infty} A_{n} = {\omega | \omega 属于无穷多个A_n}$$</p>
-<p>下极限 $\bigcup_{n=1}^{\infty} \bigcap_{k=n}^{\infty} A_{k}$，此例中，$n=1$时为空集；$n\ge 2$时是${b}$。因此，下极限是${b}$。下极限中没有${0,1}$，因为${0,1}$虽然存在于无穷多个集合中，但是同时也不存在于无穷多个集合中。下极限的元素，<strong>只在有限个集合中不存在</strong>。也说明了，下极限的元素一定是存在于无穷多的集合中，因此下极限的元素一定存在于上极限中，有定义：<br>$$\liminf_{n \rightarrow \infty} A_{n} = {\omega | \omega 至多不属于有限个A_n}$$<br>并且<br>$$\liminf_{n \rightarrow \infty} A_n \subset \limsup_{n \rightarrow \infty} A_n$$</p>
-<p>Lemma 1(Borel-Cantelli引理)</p>
-<p>若 $\sum_{n=1}^{\infty} P(A_{n})&lt;\infty$,<br>则有 $$P(\limsup_{n \rightarrow \infty} A_{n})=0$$</p>
-<p>若 ${A_{n}}$ 间相互独立, 则$\sum_{n=1}^{\infty} P\left(A_{n}\right)=\infty$<br>成立的充要条件为<br>$$P\left(\limsup <em>{n \rightarrow \infty} A</em>{n}\right)=1$$</p>
-<p><strong>Note</strong></p>
+          <p>Def 1. (上极限和下极限)<br>$\forall \{A_n\}^{\infty}_{n=1}$，上极限是</p>
+<script type="math/tex; mode=display">\limsup_{n \rightarrow \infty} A_{n} =\bigcap_{n=1}^{\infty} \bigcup_{k=n}^{\infty} A_{k}</script><p>下极限是</p>
+<script type="math/tex; mode=display">\liminf_{n \rightarrow \infty} A_{n} =\bigcup_{n=1}^{\infty} \bigcap_{k=n}^{\infty} A_{k}</script><h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><script type="math/tex; mode=display">A_1 = \{1,a\}</script><script type="math/tex; mode=display">A_2 = \{0,b\}</script><script type="math/tex; mode=display">A_3 = \{1,b\}</script><script type="math/tex; mode=display">A_4 = \{0,b\}</script><script type="math/tex; mode=display">\cdots</script><p>在这个例子中，上极限 $\bigcap_{n=1}^{\infty} \bigcup_{k=n}^{\infty} A_{k}$取为$\{0,1,b\}$，因为$\{a\}$仅仅在$\{A_1\}$中存在。因此，上极限可以理解为在<strong>无穷个$\{A_j\}$中存在的元素的集合</strong>。</p>
+<p>$\{A_n\}$的上极限与单纯地对$\{A_n\}$取交集区别：单纯取交集，可能得到空集，因为不是都存在元素在每个集合中都存在，上极限只需要其中元素在无穷个集合中存在即可。于是，有定义：</p>
+<script type="math/tex; mode=display">\limsup_{n \rightarrow \infty} A_{n} = \{\omega | \omega 属于无穷多个A_n\}</script><p>下极限 $\bigcup_{n=1}^{\infty} \bigcap_{k=n}^{\infty} A_{k}$，此例中，$n=1$时为空集；$n\ge 2$时是$\{b\}$。因此，下极限是$\{b\}$。下极限中没有$\{0,1\}$，因为$\{0,1\}$虽然存在于无穷多个集合中，但是同时也不存在于无穷多个集合中。下极限的元素，<strong>只在有限个集合中不存在</strong>。也说明了，下极限的元素一定是存在于无穷多的集合中，因此下极限的元素一定存在于上极限中，有定义：</p>
+<script type="math/tex; mode=display">\liminf_{n \rightarrow \infty} A_{n} = \{\omega | \omega 至多不属于有限个A_n\}</script><p>并且</p>
+<script type="math/tex; mode=display">\liminf_{n \rightarrow \infty} A_n \subset \limsup_{n \rightarrow \infty} A_n</script><p>Lemma 1(Borel-Cantelli引理)</p>
+<p>若 $\sum_{n=1}^{\infty} P(A_{n})&lt;\infty$,<br>则有 <script type="math/tex">P(\limsup_{n \rightarrow \infty} A_{n})=0</script></p>
+<p>若 $\{A_{n}\}$ 间相互独立, 则$\sum_{n=1}^{\infty} P\left(A_{n}\right)=\infty$<br>成立的充要条件为 </p>
+<script type="math/tex; mode=display">P\left(\limsup _{n \rightarrow \infty} A_{n}\right)=1</script><p><strong>Note</strong></p>
 <p>这个引理在概率论的直观解释就是抛无限次硬币，出现无限次正面朝上的概率为1，出现有限次反面朝上的概率为0。</p>
 <p>从测度论也很好理解：如果一系列独立事件发生的概率和小于无穷，那么这些事件中<strong>无穷多次发生的事件的概率测度</strong>必为0，否则这无限多个集合每个测度都不小于$\epsilon$，加在一起就无穷大了；反之如果一系列独立事件发生的概率和趋向无穷，那么这些事件中<strong>无穷多件发生的概率为1</strong>。</p>
-<p>记号：$A_n,i.o.(infinitely often)$表示集合序列的${A_n}$的上极限。</p>
+<p>记号：$A_n,i.o.(infinitely often)$表示集合序列的$\{A_n\}$的上极限。</p>
 
       
     </div>
@@ -265,7 +267,7 @@
 
       
           <h2 id="失心"><a href="#失心" class="headerlink" title="失心"></a>失心</h2><hr>
-<p>前阵子脑子里一直转悠这篇文章，于是去找。在网上用尽了方法也没找到原文，最后从一位《萌芽》收藏爱好者手里得到了这篇（感谢人家5块钱请人喝瓶饮料）。出自2011年10月刊，作者王佩。记得12年或者13年时也找过这篇文章，但是找没找到忘记了，硬盘里没有记录。看过的东西谁也不知道会对自己造成什么影响，比如这篇小文章，只能说–自己看的、经历过的还不够多。</p>
+<p>前阵子脑子里一直转悠这篇文章，于是去找。在网上用尽了方法也没找到原文，最后从一位《萌芽》收藏爱好者手里得到了这篇（感谢人家5块钱请人喝瓶饮料）。出自2011年10月刊，作者王佩。记得12年或者13年时也找过这篇文章，但是找没找到忘记了，硬盘里没有记录。看过的东西谁也不知道会对自己造成什么影响，比如这篇小文章，只能说—自己看的、经历过的还不够多。</p>
 <center>1</center>
 
 <p>高二结束得暑假荣荣家里买了新房子，在一个挺漂亮得住宅区里头，顶楼带露台，很合喜欢侍弄花草得男孩得脾胃。新房子得南面正对小区中央得花园，当初建楼的时候设计者舍不得挖掉这块地皮上的几颗百年银杏树，就以它们为中心圈了块地，配上亭子和木桥，这让荣荣觉得整个小区都有了被疼爱的味道，使住客的心灵都能获得宁静。</p>
@@ -613,11 +615,11 @@
           <hr>
 <h1 id="破碎故事之心"><a href="#破碎故事之心" class="headerlink" title="破碎故事之心"></a>破碎故事之心</h1><p>爱你是我最重要的事情，莱斯特小姐。有些人他们认为爱是性，是婚姻，是早上6点钟的一个吻和一群孩子，也许是这样的，莱斯特小姐。但是你知道我是怎么想的吗？我觉得爱是想触碰却又收回的手。</p>
 <p>Dear Miss Lester:  </p>
-<p>I hope a few lines will not annoy or embarrass you. I’m writing, Miss Lesterm because I’d like to you to know that I am not a common thief. I stole your bag, I want you to know, because I fell in love with you the moment I saw you on the bus. I could think of no way to become acquainted with you except by acting rashly–foolishly, to be accurate. But then, one is fool when one is in love.</p>
+<p>I hope a few lines will not annoy or embarrass you. I’m writing, Miss Lesterm because I’d like to you to know that I am not a common thief. I stole your bag, I want you to know, because I fell in love with you the moment I saw you on the bus. I could think of no way to become acquainted with you except by acting rashly—foolishly, to be accurate. But then, one is fool when one is in love.</p>
 <p>I loved the way your lips were so slightly parted. You represented the answer to everything to me. I haven’t been unhappy since I came to New York four years ago, but neither have I been happy. Rather I can best describe myself as having been one of the thousands of young men in New York who simply exist.</p>
 <p>I came to New York from Seattle. I was going to become rich and famous and well-dressed and suave. But in four years I’ve learned that I am not going to become rich and famous and well-dressed and suave. I’m a good printer’s assistant, but that’s all I am. One day the printer go sick, and I had to take his place. What a mess I made of things, Miss Lester. No one would take my orders. The typeseters just sort of giggled when I would tell them to get to work. And I don’t blame them. I’m a fool when I give orders. I suppose I’m just one of the millions who was never meant to give orders. But I don’t mind anymore. There’s a twenty-there-year-old kid  ny boss just hired. He’s only twenty-three, and I am thirty-one and have worded at the same place for fours years. But I know that one day he will become heat printer, and I will be his assistant. But I don’t mind knowing this anymore.</p>
 <p>Loving you is the important thing, Miss Lester. There are some people who think love is sex and marriage and six o’clock-kisses and children, and perhaps it is, Miss Lester. But do you know what I think? I think love is a touch and yet not a touch.</p>
-<p>I suppose it’s important to a women that other people think of her as the wife of a man who is either rich, handsome, witty or popular. I’m not even popular. I’m not even hated. I’m just–I’m just–Justin Horgenschlag. I never make people gay, sad, angry, or even disgusted. I think people regard me as a nice guy, but that’s all.</p>
+<p>I suppose it’s important to a women that other people think of her as the wife of a man who is either rich, handsome, witty or popular. I’m not even popular. I’m not even hated. I’m just—I’m just—Justin Horgenschlag. I never make people gay, sad, angry, or even disgusted. I think people regard me as a nice guy, but that’s all.</p>
 <h1 id="全文"><a href="#全文" class="headerlink" title="全文"></a>全文</h1><p>Every day Justin Horgenschlag, thirty-dollar-a-week printer’s assistant, saw at close quarters approximately sixty women whom he had never seen before. Thus in the few years he had lived in New York, Horgenschlag had seen at close quarters about 75,120 different women. Of these 75,120 women, roughly 25,000 were under thirty years of age and over fifteen years of age. Of the 25,000 only 5,000 weighed between one hundred five and one hundred twenty-five pounds. Of these 5,000 only 1,000 were not ugly. Only 500 were reasonably attractive; only 100 of these were quite attractive; only 25 could have inspired a long, slow whistle. And with only 1 did Horgenschlag fall in love at first sight. </p>
 <p>Now, there are two kinds of femme fatale. There is the femme fatale who is a femme fatale in every sense of the word, and there is the femme fatale who is not a femme fatale in every sense of the word. </p>
 <p>Her name was Shirley Lester. She was twenty years old (eleven years younger than Horgenschlag), was five-foot-four (bringing her head to the level of Horgenschlag’s eyes), weighed 117 pounds (light as a feather to carry). Shirley was a stenographer, lived with and supported her mother, Agnes Lester, an old Nelson Eddy fan. In reference to Shirley’s looks people often put it this way: “Shirley’s as pretty as a picture.”<br>And in the Third Avenue bus early one morning, Horgenschlag stood over Shirley Lester, and was a dead duck. All because Shirley’s mouth was open in a peculiar way. Shirley was reading a cosmetic advertisement in the wall panel of the bus; and when Shirley read, Shirley relaxed slightly at the jaw. And in that short moment while Shirley’s mouth was open, lips were parted, Shirley was probably the most fatal one in all Manhattan. Horgenschlag saw in her a positive cure-all for a gigantic monster of loneliness which had been stalking around his heart since he had come to New York. Oh, the agony of it! The agony of standing over Shirley Lester and not being able to bend down and kiss Shirley’s parted lips. The inexpressible agony of it!</p>
@@ -740,10 +742,8 @@
 
       
           <p><strong>说明</strong><br>这是一个测试！</p>
-<p>$$ x^2 + 1 = y $$</p>
-<p> $$<br> \frac{abc123}{xyz123}<br> $$</p>
-<p>$$ \int_{-\infty} ^{+\infty} x^2 dx = +\infty $$</p>
-<p>$\sin \pm$</p>
+<script type="math/tex; mode=display">x^2 + 1 = y</script><script type="math/tex; mode=display">
+ \frac{abc123}{xyz123}</script><script type="math/tex; mode=display">\int_{-\infty} ^{+\infty} x^2 dx = +\infty</script><p>$\sin \pm$</p>
 <p>$\int_{-\infty}^{+\infty}$</p>
 
       
@@ -804,16 +804,12 @@
       
           <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       

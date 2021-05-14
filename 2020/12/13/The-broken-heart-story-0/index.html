@@ -194,11 +194,11 @@
         <hr>
 <h1 id="破碎故事之心"><a href="#破碎故事之心" class="headerlink" title="破碎故事之心"></a>破碎故事之心</h1><p>爱你是我最重要的事情，莱斯特小姐。有些人他们认为爱是性，是婚姻，是早上6点钟的一个吻和一群孩子，也许是这样的，莱斯特小姐。但是你知道我是怎么想的吗？我觉得爱是想触碰却又收回的手。</p>
 <p>Dear Miss Lester:  </p>
-<p>I hope a few lines will not annoy or embarrass you. I’m writing, Miss Lesterm because I’d like to you to know that I am not a common thief. I stole your bag, I want you to know, because I fell in love with you the moment I saw you on the bus. I could think of no way to become acquainted with you except by acting rashly–foolishly, to be accurate. But then, one is fool when one is in love.</p>
+<p>I hope a few lines will not annoy or embarrass you. I’m writing, Miss Lesterm because I’d like to you to know that I am not a common thief. I stole your bag, I want you to know, because I fell in love with you the moment I saw you on the bus. I could think of no way to become acquainted with you except by acting rashly—foolishly, to be accurate. But then, one is fool when one is in love.</p>
 <p>I loved the way your lips were so slightly parted. You represented the answer to everything to me. I haven’t been unhappy since I came to New York four years ago, but neither have I been happy. Rather I can best describe myself as having been one of the thousands of young men in New York who simply exist.</p>
 <p>I came to New York from Seattle. I was going to become rich and famous and well-dressed and suave. But in four years I’ve learned that I am not going to become rich and famous and well-dressed and suave. I’m a good printer’s assistant, but that’s all I am. One day the printer go sick, and I had to take his place. What a mess I made of things, Miss Lester. No one would take my orders. The typeseters just sort of giggled when I would tell them to get to work. And I don’t blame them. I’m a fool when I give orders. I suppose I’m just one of the millions who was never meant to give orders. But I don’t mind anymore. There’s a twenty-there-year-old kid  ny boss just hired. He’s only twenty-three, and I am thirty-one and have worded at the same place for fours years. But I know that one day he will become heat printer, and I will be his assistant. But I don’t mind knowing this anymore.</p>
 <p>Loving you is the important thing, Miss Lester. There are some people who think love is sex and marriage and six o’clock-kisses and children, and perhaps it is, Miss Lester. But do you know what I think? I think love is a touch and yet not a touch.</p>
-<p>I suppose it’s important to a women that other people think of her as the wife of a man who is either rich, handsome, witty or popular. I’m not even popular. I’m not even hated. I’m just–I’m just–Justin Horgenschlag. I never make people gay, sad, angry, or even disgusted. I think people regard me as a nice guy, but that’s all.</p>
+<p>I suppose it’s important to a women that other people think of her as the wife of a man who is either rich, handsome, witty or popular. I’m not even popular. I’m not even hated. I’m just—I’m just—Justin Horgenschlag. I never make people gay, sad, angry, or even disgusted. I think people regard me as a nice guy, but that’s all.</p>
 <h1 id="全文"><a href="#全文" class="headerlink" title="全文"></a>全文</h1><p>Every day Justin Horgenschlag, thirty-dollar-a-week printer’s assistant, saw at close quarters approximately sixty women whom he had never seen before. Thus in the few years he had lived in New York, Horgenschlag had seen at close quarters about 75,120 different women. Of these 75,120 women, roughly 25,000 were under thirty years of age and over fifteen years of age. Of the 25,000 only 5,000 weighed between one hundred five and one hundred twenty-five pounds. Of these 5,000 only 1,000 were not ugly. Only 500 were reasonably attractive; only 100 of these were quite attractive; only 25 could have inspired a long, slow whistle. And with only 1 did Horgenschlag fall in love at first sight. </p>
 <p>Now, there are two kinds of femme fatale. There is the femme fatale who is a femme fatale in every sense of the word, and there is the femme fatale who is not a femme fatale in every sense of the word. </p>
 <p>Her name was Shirley Lester. She was twenty years old (eleven years younger than Horgenschlag), was five-foot-four (bringing her head to the level of Horgenschlag’s eyes), weighed 117 pounds (light as a feather to carry). Shirley was a stenographer, lived with and supported her mother, Agnes Lester, an old Nelson Eddy fan. In reference to Shirley’s looks people often put it this way: “Shirley’s as pretty as a picture.”<br>And in the Third Avenue bus early one morning, Horgenschlag stood over Shirley Lester, and was a dead duck. All because Shirley’s mouth was open in a peculiar way. Shirley was reading a cosmetic advertisement in the wall panel of the bus; and when Shirley read, Shirley relaxed slightly at the jaw. And in that short moment while Shirley’s mouth was open, lips were parted, Shirley was probably the most fatal one in all Manhattan. Horgenschlag saw in her a positive cure-all for a gigantic monster of loneliness which had been stalking around his heart since he had come to New York. Oh, the agony of it! The agony of standing over Shirley Lester and not being able to bend down and kiss Shirley’s parted lips. The inexpressible agony of it!</p>
@@ -444,6 +444,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
