@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="2021-4-30张老师，您好！打扰您了，我是研一的王树宏，最近在看您讲的《随机分析及其应用》的书，但是我在看第四章一个定理时，有步骤实在搞不懂了，冒昧地问您一下这个问题，就是截图里标黄的部分。  意思是交叉项取完期望就是零了，这里需要逆用重期望公式，把那个交叉项写成条件期望的期望  \begin{aligned} &amp; E\left(\int_0^T \Phi_t \mathrm{~d} B_t\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stochastic Calculus with askzzy">
+<meta property="og:url" content="http://example.com/2022/10/02/Stochastic-Calculus-with-askzzy/index.html">
+<meta property="og:site_name" content="抄书指北">
+<meta property="og:description" content="2021-4-30张老师，您好！打扰您了，我是研一的王树宏，最近在看您讲的《随机分析及其应用》的书，但是我在看第四章一个定理时，有步骤实在搞不懂了，冒昧地问您一下这个问题，就是截图里标黄的部分。  意思是交叉项取完期望就是零了，这里需要逆用重期望公式，把那个交叉项写成条件期望的期望  \begin{aligned} &amp; E\left(\int_0^T \Phi_t \mathrm{~d} B_t\">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-10-02T13:06:42.000Z">
+<meta property="article:modified_time" content="2022-10-02T13:43:48.645Z">
+<meta property="article:author" content="Eureka">
+<meta property="article:tag" content="Stochastic">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/10/02/Stochastic-Calculus-with-askzzy/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Stochastic Calculus with askzzy | 抄书指北</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">抄书指北</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/02/Stochastic-Calculus-with-askzzy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Eureka">
+      <meta itemprop="description" content="小窝">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="抄书指北">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Stochastic Calculus with askzzy
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-10-02 21:06:42 / Modified: 21:43:48" itemprop="dateCreated datePublished" datetime="2022-10-02T21:06:42+08:00">2022-10-02</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h5 id="2021-4-30"><a href="#2021-4-30" class="headerlink" title="2021-4-30"></a>2021-4-30</h5><p>张老师，您好！打扰您了，我是研一的王树宏，最近在看您讲的《随机分析及其应用》的书，但是我在看第四章一个定理时，有步骤实在搞不懂了，冒昧地问您一下这个问题，就是截图里标黄的部分。</p>
+<hr>
+<p>意思是交叉项取完期望就是零了，这里需要逆用重期望公式，把那个交叉项写成条件期望的期望</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+& E\left(\int_0^T \Phi_t \mathrm{~d} B_t\right)^2 =E\left[\sum_{i=0}^m \Phi_{s_i}\left(B_{t_i}-B_{s_i}\right)\right] \\
+&=E\left[\sum_{i=0}^m \Phi_{s_i}^2\left(B_{t_i}-B_{s_i}\right)^2+2 \sum_{j<k} \Phi_{s_j} \Phi_{s_k}\left(B_{t_j}-B_{s_j}\right)\left(B_{t_k}-B_{s_k}\right)\right] \\
+&=E\left[\sum_{i=0}^m E\left(\Phi_{s_i}^2\left(B_{t_i}-B_{s_i}\right)^2 \mid \boldsymbol{B}_{s_i}\right)+2 \sum_{j<k} E\left(\Phi_{s_j} \Phi_{s_k}\left(B_{t_j}-B_{s_j}\right)\left(B_{t_k}-B_{s_k}\right) \mid \boldsymbol{B}_{s_j}\right)\right] \\
+&=E\left[\sum_{i=0}^m \Phi_{s_i}^2 E\left(\left(B_{t_i}-B_{s_i}\right)^2 \mid \boldsymbol{B}_{s_i}\right)+2 \sum_{j<k} \Phi_{s_j}\left(B_{t_j}-B_{s_j}\right) E\left(\Phi_{s_k}\left(B_{t_k}-B_{s_k}\right) \mid B_{s_j}\right)\right] \\
+&=E\left[\sum_{i=0}^m \Phi_{s_i}^2 E\left(B_{t_i}-B_{s_i}\right)^2+2 \sum_{j<k} \Phi_{s_j}\left(B_{t_j}-B_{s_j}\right) E\left(\Phi_{s_k}\left(\left(B_{t_k}-B_{s_k}\right) \mid \boldsymbol{B}_{s_k}\right) \boldsymbol{B}_{s_j}\right)\right] \\
+&=E\left[\sum_{i=0}^m \Phi_{s_i}^2\left(t_i-s_i\right)\right]=\sum_{i=0}^m E \Phi_{s_i}^2\left(t_i-s_i\right)=\sum_{i=0}^m\left\|\Phi_{s_i}\right\|{ }^2\left(t_i-s_i\right) .
+\end{aligned}</script><p>技巧就类似这里的第三四行,这个微信上写起来基本是说不明白的，你要还看不懂周一上午十点半可以去C814找我。</p>
+<hr>
+<p>Theorem 4.14 </p>
+<p>If $g$ is a bounded continuous function and $\{t_i^n\}$ represents partitions of $[0,t]$, then for any $θ^n_i \in (B(t_i^n), B(t_i^{n+1}))$,<br>the limit in probability </p>
+<script type="math/tex; mode=display">
+\lim \sum_{i=0}^{n-1} g(\theta^n_i )(B(t^n_{i+1}) − B(t^n_i))^2 
+= \int^{t}_{0} g(B(s)) d s</script><p>Note that the Smooth propery $\mathbb{E} [\mathbb{E} [x|\mathcal{G}_2]|\mathcal{G}_1] = \mathbb{E}[x|\mathcal{G}_1]$, if $\mathcal{G}_1 \subset \mathcal{G}_2$. Particularly, note that $ \mathbb{E} [\mathbb{E} [x|\mathcal{G}]] = \mathbb{E}[x]$.</p>
+<p>Partial proof</p>
+<p>With $\Delta B_i = B(t_i^{n+1}) − B(t_i^n)$ and $\Delta t_i = t_i^{n+1} − t_i^n$, by using conditioning it is seen that the cross-product term in the following expression vanishes and </p>
+<script type="math/tex; mode=display">
+\begin{align}
+&\mathbb{E} \left(\sum^{n−1}_{i=0} g(B(t^n_i )) ((\Delta B_i)^2 − \Delta t_i )\right)^2 \\
+&= \mathbb{E}\sum^{n-1}_{i=0} g^2(B(t^n_i )) \mathbb{E} (((\Delta B_i)^2 − \Delta t_i )^2 | \mathcal{F}_{t_i} ) \\
+&=2 \mathbb{E} \sum^{n-1}_{i=0} g^2(B(t^n_i ))(\Delta t_i)^2 \\
+&\le \delta 2 \mathbb{E} \sum^{n-1}_{i=0} g^2(B(t_n^i ))\delta t_i \to 0 \ \text{as}\ \delta \to 0
+\end{align}</script><p>Remark</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\mathbb{E}& \left(\sum^{n−1}_{i=0} g(B(t^n_i )) ((\Delta B_i)^2 − \Delta t_i )\right)^2 \\
+=& \mathbb{E} \left(\sum^{n−1}_{i=0} \left[g(B(t^n_i ))^2 ((\Delta B_i)^2 − \Delta t_i )^2\right] \right.\\
+&\left.+ 2 \sum_{j <k}\left[ g(B(t^n_j )) g(B(t^n_k ))  ((\Delta B_j)^2 − \Delta t_j ) ((\Delta B_k)^2 − \Delta t_k ) \right]\right) \\
+=& \mathbb{E} \left(\sum^{n−1}_{i=0} \mathbb{E} \left[ \left[g(B(t^n_i ))^2 ((\Delta B_i)^2 − \Delta t_i )^2\right] | \mathcal{F_{t_i}} \right] \right.\\
+&\left.+ 2 \sum_{j <k} \mathbb{E} \left[ \left[ g(B(t^n_j )) g(B(t^n_k ))  ((\Delta B_j)^2 − \Delta t_j ) ((\Delta B_k)^2 − \Delta t_k ) \right] | \mathcal{F}_{t_j} \right] \right)  \\
+=& \mathbb{E} \left( \sum^{n−1}_{i=0} \left[ g(B(t^n_i ))^2 \mathbb{E} \left[ \left[ ((\Delta B_i)^2 − \Delta t_i )^2\right] | \mathcal{F_{t_i}}  \right] \right] \right.\\
+&\left.+ 2 \sum_{j <k} \left[g(B(t^n_j )) ((\Delta B_j)^2 − \Delta t_j ) \mathbb{E} \left[ \left[  g(B(t^n_k )) ((\Delta B_k)^2 − \Delta t_k ) \right] | \mathcal{F}_{t_j} \right] \right] \right)  \\
+=& \mathbb{E} \left( \sum^{n−1}_{i=0} \left[ g(B(t^n_i ))^2 \mathbb{E} \left[ ((\Delta B_i)^2 − \Delta t_i )^2\right] \right] \right.\\
+&\left.+ 2 \sum_{j <k} \left[g(B(t^n_j )) ((\Delta B_j)^2 − \Delta t_j ) \mathbb{E} \left[ \left[  g(B(t^n_k )) ((\Delta B_k)^2 − \Delta t_k ) \right] | \mathcal{F}_{t_j} \right] \right] \right)  \\
+\end{align}</script><p>Cause $((\Delta B_i)^2 − \Delta t_i )^2$ is not related with $\mathcal{F}_{t_i}$.</p>
+<p>Due to the smooth property, we have</p>
+<script type="math/tex; mode=display">
+\begin{align}
+& 2 \mathbb{E} \left[ \sum_{j <k} \mathbb{E} \left[ \left[ g(B(t^n_j )) g(B(t^n_k ))  ((\Delta B_j)^2 − \Delta t_j ) ((\Delta B_k)^2 − \Delta t_k ) \right] | \mathcal{F}_{t_j} \right] \right] \\
+&= 2 \mathbb{E} \left[ \sum_{j <k} \mathbb{E} \left[ \mathbb{E} \left[ \left[ g(B(t^n_j )) g(B(t^n_k ))  ((\Delta B_j)^2 − \Delta t_j ) ((\Delta B_k)^2 − \Delta t_k ) \right] | \mathcal{F}_{t_k} \right]  | \mathcal{F}_{t_j} \right]\right] \\
+&= 2 \mathbb{E} \left[ \sum_{j <k} \mathbb{E} \left[  g(B(t^n_j )) g(B(t^n_k ))  ((\Delta B_j)^2 − \Delta t_j ) \mathbb{E} \left[ \left[  ((\Delta B_k)^2 − \Delta t_k ) \right] | \mathcal{F}_{t_k} \right]  | \mathcal{F}_{t_j} \right]\right] \\
+& \mathbb{E} \left[ \left[  ((\Delta B_k)^2 − \Delta t_k ) \right] | \mathcal{F}_{t_k} \right] = \mathbb{E}[((\Delta B_k)^2 − \Delta t_k ) ] =0  \\
+&= 2 \mathbb{E} \left[ \sum_{j <k} \mathbb{E} \left[  g(B(t^n_j )) g(B(t^n_k ))  ((\Delta B_j)^2 − \Delta t_j ) \mathbb{E}[((\Delta B_k)^2 − \Delta t_k ) ]  | \mathcal{F}_{t_j} \right]\right] \\
+&= 0
+\end{align}</script><h5 id="2021-7-10"><a href="#2021-7-10" class="headerlink" title="2021-7-10"></a>2021-7-10</h5><p>定理1.3.2 严测度论<br>如果$\mathscr{Q}$是半环，则</p>
+<script type="math/tex; mode=display">
+r(\mathscr{Q}) = \bigcup^{\infty}_{n=1}\left\{ \bigcup^{n}_{k=1} A_k: \{A_k \in \mathscr{Q}, k =1,\cdots,n\} \text{两两不交}\right\}.</script><p>定理1.3.2 为什么环对有限并封闭能推出后面的结论啊? 1.3.1右边的定义是一个可列并吧?</p>
+<hr>
+<p>不是，1.3.1是所有有限并的全体</p>
+<hr>
+<p>所以是，任意有限并是属于生成的环的</p>
+<h5 id="2021-9-22"><a href="#2021-9-22" class="headerlink" title="2021-9-22"></a>2021-9-22</h5><p>老师，a.e和a.s.有什么区别吗？我见有论文里，连起来写?$a.e.,a.s.$</p>
+<hr>
+<p>前者分析用的多，后者概率用的多，一起用是为了区分概率空间和一般测度空间。<br>比如同时涉及到Lebesgue积分和Ito积分的情况， 前者用a.e.，后者用a.s.，但其实没有绝对的分别，只有作者之间的约定</p>
+<hr>
+<h5 id="2021-9-27"><a href="#2021-9-27" class="headerlink" title="2021-9-27"></a>2021-9-27</h5><p>(2) 存在充分大的 $N$ 使 $\sum_{n=N+1} \mu\left(B_n\right)&lt;\varepsilon / 2$, 从而<br>$\left.\left.\tau A \mid\left(\bigcup_{n=1}^N B_n\right)\right) \leqslant \tau\left(\bigcup_{n=1}^{\infty} B_n\right)\left(\bigcup_{n=1}^N B_n\right)\right) \quad$ ( $\tau$ 有单调性)</p>
+<script type="math/tex; mode=display">
+\leqslant \tau\left(\bigcup_{n=1}^{\infty} B_n\right)-\tau\left(\bigcup_{n=1}^N B_n\right)</script><p>$(\sigma(\mathscr{A})$ 上测度 $\tau$ 有可减性)<br>$\leqslant \tau\left(\bigcup_{n=N+1}^{\infty} B_n\right)$<br>$\left(\right.$ 因为 $\left.\tau\left(\bigcup_{n=1}^{\infty} B_n\right) \leqslant \tau\left(\bigcup_{n=1}^N B_n\right)+\tau\left(\bigcup_{n=N+1}^{\infty} B_n\right)\right)$</p>
+<p>课本上这（2）这个证明为什么需要单调可减来证明啊？43页上，我是想， 不能直接减掉前N个集合，等号过来吗？</p>
+<hr>
+<p>因为这里通篇都少写了一个字，tau是外测度，只有单调性和次可列可加</p>
+<hr>
+<h5 id="2021-11-3"><a href="#2021-11-3" class="headerlink" title="2021-11-3"></a>2021-11-3</h5><ol>
+<li>张老师，今天早上您讲习题里面，有个集合运算的步骤，我一直犯迷糊。<br>要证明<script type="math/tex; mode=display">
+\{f_n + g_n \le x\} \subset \{f_n \le x + \epsilon \} \cup  \{g_n \le - \epsilon \}</script>即证明<script type="math/tex; mode=display">
+if \omega \in \{f_n + g_n \le x\}, then \omega \in \{f_n \le x + \epsilon \} \cup  \{g_n \le - \epsilon \}.</script></li>
+</ol>
+<hr>
+<p>是后面能推前面，前面推不出后面，所以是真子集</p>
+<p>说白了，｛f（x）＜0｝和｛f（x）＜1｝谁能推出谁，谁是谁的子集</p>
+<hr>
+<p>这里，$\{f_n + g_n \le x\}$指的是原像。</p>
+<ol>
+<li>这里为什么，可以这么定义或者记号，两个随机微分的积等于这两个ito过程的二次变差的随机微分？example 4.18</li>
+</ol>
+<hr>
+<p>这就是记号，之后会讲到，在进行复杂运算时候这些是对的，但是它们理论上只能存在于积分号里面</p>
+<hr>
+<h5 id="2021-11-9"><a href="#2021-11-9" class="headerlink" title="2021-11-9"></a>2021-11-9</h5><p>张老师，早上您讲的，L2适应过程的Ito积分的那个反例。<br>这个反例是不是恰好说明了，如果f连续，那么f(Bt)连续，它的Ito积分存在，并且具备前两条线性性质。但是不一定具备零均值、Ito等距性质。</p>
+<p>因为我看书上的推论4.4，只是说连续适应过程的Ito积分存在，没有说满足二阶矩条件。<br>而且，两个正面的例题，e^t和t情况时，都有先验证二阶矩条件。感觉不知道我哪里理解错了….</p>
+<hr>
+<p>二阶矩条件是额外的，这里应该先写有1-2，然后有二阶矩条件才有3-4</p>
+<p>这里推论写多了，书上证明不对</p>
+<hr>
+<p>哦哦，是不是这样的，老师。<br>这个推论4.1.2：“且具备性质1-4”改成”具备1-2，若有二阶矩条件，又有性质3-4“</p>
+<h5 id="2021-11-30"><a href="#2021-11-30" class="headerlink" title="2021-11-30"></a>2021-11-30</h5><p>张老师，上次您最后讲的那个例题。<br>假设的是P(B_\tau = b) =p，然后最后解出来的是p=(x-a)(b-a)。这样是不是到达a之前，先到b的概率?</p>
+<hr>
+<p>yes</p>
+<hr>
+<h5 id="2021-12-3"><a href="#2021-12-3" class="headerlink" title="2021-12-3"></a>2021-12-3</h5><p>张老师，求助您一个画图的问题…<br>带跳的我还是稀里糊涂的，我想用欧拉法简单的迭代算个样本路径，跳跃部分实在不知道怎么算好了….</p>
+<script type="math/tex; mode=display">
+dX(t) = f(X(t),t)dt + g(X(t),t)dB(t) + \int_{|z|\le 1} H(X(t-),t-,z)\tilde{N}(dt,dz)</script><p>Euler meathod</p>
+<script type="math/tex; mode=display">
+X(t_{n+1}) = X(t_n) + f(X(t_n),t_n)\Delta t + g(X(t_n),t_n)\Delta B(t) 
+            + \int_{|z|\le 1} H(X(t-),t-,z)\tilde{N}(\Delta t, \Delta z)</script><p>the last intergral term maybe write as $\Delta \tilde{N}(dt, dz)$??</p>
+<p>the last intergral term is a compound poisson process? (No, 2022-10-2, if $0 &lt; |z|$, then it is a compound poisson process.)</p>
+<p>Yang Ning’s wrong (-: (-: (-:</p>
+<p>$\tilde{N}(\Delta t, \Delta z) \sim Pois(\nu (\Delta z) \Delta t)$??, so we can get the random number $V_Z$. </p>
+<p>refence to Zhu:<br>$\nu (dz) = \frac{dz}{1 + |z|^2}$</p>
+<p>then $\int_{|z| &lt;1} H(X(t-),t-,z) V_z \frac{dz}{1 + |z|^2} $??</p>
+<p>in all, amazing wrong steps and meathod…..</p>
+<hr>
+<p>数值这方面我也不是很熟，但是我觉得带跳的部分应该不容易模拟，因为小跳和连续的在数值方面难以区分,<br>大跳的部分和连续的部分倒是好说</p>
+<hr>
+<p>我是这个跳跃部分，这个复合泊松过程不知道怎么想好…</p>
+<p>A sample path of this process is generated as follows:</p>
+<ol>
+<li>generate a path of the Markov chain, i.e. a set of switching times $\tau_0=0, \tau_1, \cdots, \tau_{L+1} =T$ and the corresponding states $\alpha(t) = \alpha_k \in \mathcal{S}, k=1,…,L$.</li>
+<li>gencrate the jump times $v_{k_j}$, of the Poisson process in cach interval $[\tau_k, \tau_{k+1})$ according to<br>the intensity $\lambda{\alpha _k}$ and let $N_{k}$ be the number of jumps;</li>
+<li>for any $k = 0,…,L$ generate $N_k$ i.i.d. samples $Y(\alpha(v_{k_j}), j = 1,…. N_k$ distributed<br>according to the probability $m(\alpha_k, dy)$;</li>
+<li>on a given time grid $t_0, …, t_n$ of $[0, T]$ built as the superposition of a deterministic grid and the jump times $v_j$, let $X(t_0) = 0$ and<script type="math/tex; mode=display">
+X(t_{i+1}) = X(t_{i+1}-) + \int _{E} \gamma(y, \alpha(t_{i+1})) p(dy, t_{i +1})</script>If $t_{i+1}$ is actually a point of the Poisson random measure, the magnitude of the jump is sampled, that is<script type="math/tex; mode=display">
+\int _{E} \gamma(y, \alpha(t_{i+1})) p(dy, t_{i +1}) = \gamma(Y(\alpha(t_{i+1}), \alpha(t_{i+1}))</script>otherwise the jump ternm is zero.</li>
+</ol>
+<hr>
+<p>复合泊松的应该能模拟，但是我觉得这事微信上说不明白，得画画图什么的</p>
+<p>主要是我确实不知道数值方面的操作，我是做纯理论的</p>
+<hr>
+<p>end at 22:32.</p>
+<h5 id="2021-12-13"><a href="#2021-12-13" class="headerlink" title="2021-12-13"></a>2021-12-13</h5><p>张老师您好，打扰您了。<br>半鞅带跳的部分还有些问题请教您。<br>在课本的246页，8.14，半鞅的典型分解，随机测度这个概念一直没搞清楚，之前一直问您Levy型式的Ito公式好像就是这个<br>原因，我不会把不连续半鞅的Ito公式跳跃部分写成积分形式。</p>
+<p>书上定义这部分符号好像我也没太弄明白，我大体的写了写，<br>麻烦张老师您看一下。</p>
+<script type="math/tex; mode=display">
+\mu (\omega, A) = \textbf{I}_A(\xi(\omega)) = \textbf{I}(\xi(\omega) \in A).</script><p>给出的$\mu$的定义，类似于$\xi(\omega)$的分布函数，有<br>$<br>\int_{\Omega}\xi(\omega)d P = \textbf{I}(\xi(\omega) \in A) = \mu(\omega, A).<br>$<br>错的离谱…</p>
+<hr>
+<p>这不是类似分布函数，是类似密度函数,所以你先求积分得到概率，再求才得到期望<br>$E \textbf{I}(\xi(\omega) \in A) = P(\xi(\omega)\in A)$.</p>
+<p>说明测度论理解不到位，或者中间缺一段高等概率论，概念还认识不到位，去看看那本《概率与测度》<br>其实这些都是简单概念的堆叠，但是简单概念理解不好，复杂的就没法下手</p>
+<hr>
+<p>嗯嗯，学测度论时期望、条件期望这些概念没搞清楚，符号测度那章也是</p>
+<p>Random measure for a single jump</p>
+<h5 id="2022-7-10"><a href="#2022-7-10" class="headerlink" title="2022-7-10"></a>2022-7-10</h5><p>张老师，打扰您了，问您个问题。<br>下边这个引理，说的是有限时间内，跳的次数有限吗？<br>Lemma 2.3.4 If $A$ is bounded below, then $N(t,A) &lt; \infty(a.s.)$ for all $t \ge 0$.</p>
+<hr>
+<p>是说有限时间内进入A的次数有限</p>
+<hr>
+<p>那这个引理，说 for all t&gt;=0, 是不是有些不合适，张老师</p>
+<p>还是说，一般这样默认t有限，不取无穷</p>
+<hr>
+<p>这么写大部分时候应该不认为t能取无穷 但是有些书可能不一样</p>
+<hr>
+<h5 id="2022-7-22"><a href="#2022-7-22" class="headerlink" title="2022-7-22"></a>2022-7-22</h5><p>张老师，不好意思晚上打扰了。我最近几个概念搞得懵了，还是想问您下levy 测度的一个问题。</p>
+<p>如果给出l\’{e}vy measure $L(d u) = d u / (1 + u^{2})$或者$L(d u) = d u / (u^{4/3})$， 如何根据这个l\’{e}vy measure 获得单位时间$\delta t$内的跳跃幅度?</p>
+<p>是直接积分吗？感觉不太对，比如：</p>
+<script type="math/tex; mode=display">
+\delta t \int _{\mathbb{R}\backslash\{0\}} L(d u)</script><p>还是不太理解，这个概念，所以已知也不清楚Lipschitz条件为什么这么给？</p>
+<hr>
+<p>你从头学过levy过程么？</p>
+<hr>
+<p>上面好像是槽点有点多，就是最近懵的很了我有大致翻过这本书，或者你看看这本书的overview</p>
+<hr>
+<p>那你知道怎么积分能得到levy过程吧</p>
+<hr>
+<p>嗯嗯，levy-ito分解和后面的poisoon积分我都有看</p>
+<p>我考虑的是带跳的SDE, 跳跃项用poisson integer表示，例如</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+ d X(t) &= f(X(t),X(t - \tau(t) ), t, r(t)) d t \\
+ &+ g(X(t),X(t - \tau(t) ), t, r(t))d B(t) \\
+&+ \int_{\mathbb{R} \backslash \{0\} }h(X(t^-), X((t - \tau(t))^- ), t^-, r(t^-), u) \tilde{N}(d t, d u) 
+\end{aligned}</script><p>考虑的l\’{e}vy measure $L(\mathbb{R}\backslash \{0\}) = \infty$，例如$L(d u) = d u / (u^{4/3})$。上一次有问张老师您一个引理，引理说明，这种无限的测度有限时内会有无穷的小跳。</p>
+<p>我的问题是：</p>
+<p>我做一条这种模型的样本路径，对于跳的部分是一个复合Poisson，我平时读的文献一般是给出有限的参数$\lambda$, 并且给出复合Poisson对应的i.i.d.的r.v.的分布。</p>
+<p>现在，我遇到的情况是：给出了，例如$L(d u) = d u / (u^{4/3})$的表示。参数是$\lambda = L(\mathbb{R}\backslash \{0\})= \infty$的，并且复合Poisson对应的i.i.d.的r.v.的分布，我也不知道是什么了？</p>
+<p>对于，$\lambda = L(\mathbb{R}\backslash \{0\}) &lt; \infty$的情况，例如$L(d u) = d u / (1 + u^{2})$，我有看这个讲义，但是，我还是不知道怎样推到$\lambda = L(\mathbb{R}\backslash \{0\})= \infty$的情况。</p>
+<hr>
+<p>如果给出l\’{e}vy measure $L(d u) = d u / (1 + u^{2})$或者$L(d u) = d u / (u^{4/3})$， 如何根据这个l\’{e}vy measure 获得单位时间$\delta t$内的跳跃幅度?</p>
+<p>是直接积分吗？感觉不太对，比如：</p>
+<script type="math/tex; mode=display">
+\delta t \int _{\mathbb{R}\backslash\{0\}} L(d u)</script><hr>
+<p>“Suppose that an infinitely divisible probability measure is such that its Lévy measure $\nu$ is absolutely continuous with respect to Lebesgue measure. We write $g_\nu = d \nu/dx$ and call it the Lévy density . </p>
+<p>For example, a compound Poisson random variable (as given in Example 1.2.10) will have a Lévy density if and only if each $Z_j$ has a pdf. In this case, we see that $g_\nu = cf_Z$ where $f_Z$ is the common pdf of the $Z_j$s.” </p>
+<hr>
+<p>有连续随机变量$X$,$X$的累积分布函数$Y=F(X)$也是连续函数,那么函数值$Y$也是一个随机变量,且$Y$是均匀分布.</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/dohkoai/p/14629651.html">https://www.cnblogs.com/dohkoai/p/14629651.html</a></p>
+<hr>
+<p>“5.1.2 Euler Scheme We now construct the Euler scheme for (5.13).” (<a href="zotero://select/library/items/4CBEFA6D">Jum, p. 103</a>) (<a href="zotero://open-pdf/library/items/Q8LXIW6L?page=103">pdf</a>)</p>
+<script type="math/tex; mode=display">Y(t_{n+1}) = Y (t_n) + \sigma Y(t_n)\Delta B_n + \int ^{t_{n+1}}_{t_n} \int_{|z|>c} Y (t_n)z N(dz, ds) \\ = Y (t_n)\left(1 + \sigma \Delta B_n +  \sum _{k=N^c(t_n)+1}^{N^c(t_{n+1})} V_k\right)</script><p>The jump coefficient is linear with respect to ‘z’, if it is nonlinear, for example $z^2$, it is not correct.??</p>
+<hr>
+<p>Forward, or explicit, Euler-Maruyama scheme. $N^*$ is either a CPoPr or a CCPoPr.</p>
+<p>This scheme is presented in e.g. [13, Page 305]. A slight generalization, including $dN^*$, gives</p>
+<script type="math/tex; mode=display">x_{n+1} = x_{n} + μ(t_n, x_n)\Delta t + σ(t_n, x_n)∆W_n + η(t_n, x_n)∆N^*_n(λ, N )</script><hr>
+<p>Simulating the Merton JD process </p>
+<ol>
+<li>The increments of the Poisson process are independent and follow a Poisson distribution with rate $λ(\Delta t)$; </li>
+<li>conditioned on the number of jumps occurred between $t_j$ and $t_{j+1}$, the sum of the jump severities is Gaussian with given mean and variance. </li>
+</ol>
+<p>Hence, the simulation algorithm can be organized as follows. </p>
+<ol>
+<li><p>Simulate the continuous part of the JD diffusion process, i.e. the ABM, on the given time partition. </p>
+</li>
+<li><p>Simulate the number of jumps occurring between $t_j$ and $t_{j+1}$, i.e. $N \sim Poi(λ(tj, tj+1))$. </p>
+</li>
+<li>Generate $Z ∼ N (0, 1)$; set $J = μZ N + σZ \sqrt{N}Z$. </li>
+<li>Sum the ABM and J.</li>
+</ol>
+<hr>
+<p>For case $L(d u) = d u / (1 + u^{2})$, $L(R) = \pi$ we get Poisson intensty.</p>
+<ol>
+<li><p>Simulate the number of jumps occurring between $t_j$ and $t_{j+1}$, i.e. $N \sim Poi(\pi(t_{j+1} - t_j))$.</p>
+</li>
+<li><p>Generate jump size: $ Z $’s pdf is $\frac{1}{1+u^2}/\pi$; Set $J = N*Z$</p>
+</li>
+</ol>
+<hr>
+<p>Variance Gamma process </p>
+<p>Lévy density <script type="math/tex">g_\nu (x) = a |x| (e^{\sqrt{2bx}} χ(-\infty,0)(x) + e^{-\sqrt{2bx}}χ(0,\infty)(x))</script></p>
+<ol>
+<li>Simulate the increments from tj to tj+1 of the Gamma clock, i.e. G ∼ Γ((tj+1 − tj)/k, 1/k). </li>
+<li>Generate Z ∼ N (0, 1); set X = θG + σ √GZ.</li>
+</ol>
+<p>Gamma law $\Gamma(\delta t / k , 1/k)$<br>where $a = \delta t /k, b = 1/k$.</p>
+<hr>
+<p>对于$L(d u) = d u / (u^{4/3})$, $L(R \backslash \{0\}) = \infty$</p>
+<hr>
+<script type="math/tex; mode=display">\int _{|y|<1} f(X(t),y)\nu(dy)</script><p>A: 转移概率—程，或者算子半群—levy calculus chapter3(需要“Functional Analysis” Yosida (1995)”])，与skorhod’s representated或许有关</p>
+<hr>
+<p>Sample path properties are discussed e.g. in Sato’s Lévy processes and infinitely divisible distributions, Section 21. For example, the following results are given there:</p>
+<p>Sample functions of X are a.s. continuous if and only if ν=0.<br>Sample functions of X are a.s. piecewise constant if and only if X is compound Poisson or a zero process.<br>If ν(Rd)=∞, then a.s. jumping times are countable and dense in [0,∞); if 0&lt;ν(Rd)&lt;∞, then a.s. jumping times are countable in increasing order and the first jumping time has an exponential distribution with mean 1/ν(Rd). In this latter case, the process {J(t)} of jumps in [0,t) is a Poisson process with intensity measure ν(Rd), so the number of jumps in [0,t) has a Poisson distribution with mean tν(Rd).<br>Tu, the first time the process jumps by more than u, has an exponential distribution with mean 1/c if $\int_{D(u,∞)}ν(dx)=c&lt;∞$, where D(u,∞)={x∈Rd:u&lt;||x||&lt;∞}.</p>
+<hr>
+<p>This shows that a L\’evy process can be represented by a compound Poisson process if and only if its L ́evy measure is finite.</p>
+<p>If A is bounded below, then $\int_A f(u)\pi (d u)$ is a compound poisson process.</p>
+<hr>
+<p>$\{x|f(x) \ne 0 \}$的闭包成$f$的支撑$supp(f)$，如果是紧集，紧支撑。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Stochastic/" rel="tag"># Stochastic</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/05/16/jump/" rel="prev" title="jump">
+      <i class="fa fa-chevron-left"></i> jump
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/10/07/Lipschitz/" rel="next" title="Lipschitz">
+      Lipschitz <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#2021-4-30"><span class="nav-number">1.</span> <span class="nav-text">2021-4-30</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2021-7-10"><span class="nav-number">2.</span> <span class="nav-text">2021-7-10</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2021-9-22"><span class="nav-number">3.</span> <span class="nav-text">2021-9-22</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2021-9-27"><span class="nav-number">4.</span> <span class="nav-text">2021-9-27</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2021-11-3"><span class="nav-number">5.</span> <span class="nav-text">2021-11-3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2021-11-9"><span class="nav-number">6.</span> <span class="nav-text">2021-11-9</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2021-11-30"><span class="nav-number">7.</span> <span class="nav-text">2021-11-30</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2021-12-3"><span class="nav-number">8.</span> <span class="nav-text">2021-12-3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2021-12-13"><span class="nav-number">9.</span> <span class="nav-text">2021-12-13</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2022-7-10"><span class="nav-number">10.</span> <span class="nav-text">2022-7-10</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2022-7-22"><span class="nav-number">11.</span> <span class="nav-text">2022-7-22</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Eureka</p>
+  <div class="site-description" itemprop="description">小窝</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eureka</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
